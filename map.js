@@ -1,5 +1,5 @@
 var ctx = null;
-var tileW = 24, tileH = 24;
+var tileW = 30, tileH = 30;
 var sandTile = new Image();
 sandTile.src = './images/sand-tile.jpg';
 
@@ -44,6 +44,22 @@ window.onload = function() {
 
 function drawGame() {
   if (ctx == null) return;
+  ctx.fillStyle = 'black';
+  ctx.globalAlpha = 0.4;
+  ctx.lineWidth = 0.5;
+  for(var i = 0; i < 40; i++) {
+    ctx.beginPath();
+    ctx.moveTo(0, i*tileH);
+    ctx.lineTo(1200, i*tileH);
+    ctx.stroke();
+  }
+  for(var i = 0; i < 40; i++) {
+    ctx.beginPath();
+    ctx.moveTo(i*tileW, 0);
+    ctx.lineTo(i*tileW, 1200);
+    ctx.stroke();
+  }
+  /*
   for( var i = 0; i < 30; i++) {
     for( var j = 0; j < 37; j++) {
       if (map[i][j]) {
@@ -54,4 +70,5 @@ function drawGame() {
       }
     }
   }
+  */
 }
