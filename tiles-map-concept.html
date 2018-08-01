@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="_public/vendors/bootstrap/bootstrap.min.css" rel="stylesheet">
+    <link href="_public/app/styles.css" rel="stylesheet">
     <title>Tiles Map Concept</title>
 </head>
 <body>
-<div style="max-height: 600px;width:75%;overflow: scroll;">
-    <canvas id="map" width="1200" height="1200" />
-</div>
+    <div class="row">
+        <div class="col-3 steps">
+            <h1>Steps</h1>
+        </div>
+        <div class="col-9 map">
+            <canvas id="map" width="1200" height="1200" />
+        </div>
+    </div>
 <script src="map.js" ></script>
 </body>
 </html>

@@ -1,0 +1,8 @@
+.steps {
+    background-color: #e1f6fb;
+}
+
+.map {
+    max-height: 680px;
+    overflow: scroll;
+}
