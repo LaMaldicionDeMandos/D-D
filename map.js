@@ -40,11 +40,15 @@ var map = [
 window.onload = function() {
   ctx = document.getElementById('map').getContext('2d');
   requestAnimationFrame(drawGame);
+
 };
 
 function drawGame() {
   if (ctx == null) return;
-  ctx.fillStyle = 'black';
+  ctx.strokeStyle = "red";
+  ctx.lineWidth = 5;
+  ctx.strokeRect(0, 0, 1200, 1200);
+  ctx.strokeStyle = 'black';
   ctx.globalAlpha = 0.4;
   ctx.lineWidth = 0.5;
   for(var i = 0; i < 40; i++) {
