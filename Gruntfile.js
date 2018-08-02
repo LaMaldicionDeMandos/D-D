@@ -4,7 +4,7 @@
 module.exports = function(grunt) {
   'use strict';
 
-  let vendorDir = '_public/vendors', nodeDir = 'node_modules';
+  let vendorDir = 'src/_public/vendors', nodeDir = 'node_modules';
   grunt.initConfig({
     clean: { vendors: [ vendorDir ]},
     copy: {
@@ -13,6 +13,10 @@ module.exports = function(grunt) {
           {expand: true,
             src: [`${nodeDir}/bootstrap/dist/*/*.min.js`, `${nodeDir}/bootstrap/dist/*/*.min.css`],
             dest: `${vendorDir}/bootstrap`, flatten: true
+          },
+          {expand: true,
+            src: [`${nodeDir}/vue/dist/*.min.js`],
+            dest: `${vendorDir}/vue`, flatten: true
           }
         ]
       }
