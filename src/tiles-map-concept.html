@@ -12,20 +12,62 @@
     <script src="_public/vendors/vue/vue.min.js"></script>
 </head>
 <body>
-    <div id="app">
-        <div class="row">
-            <div id="step"></div>
-            <div id="step_content"></div>
-        </div>
-        <!--
-        <div class="row" v-if="step == 2">
-            <componet is=""></componet>
-            <div class="col-9 map">
-                <canvas id="map" width="1200" height="1200" />
+    <div class="container">
+        <div class="row bs-wizard" style="border-bottom:0;">
+
+            <div class="col-2 bs-wizard-step active">
+                <div class="text-center bs-wizard-stepnum">Paso 1</div>
+                <div class="progress"><div class="progress-bar"></div></div>
+                <a href="#" class="bs-wizard-dot"></a>
+                <div class="bs-wizard-info text-center">Ponle un nombre al mapa y elige el tamaño.</div>
             </div>
+
+            <div class="col-2 bs-wizard-step disabled">
+                <div class="text-center bs-wizard-stepnum">Paso 2</div>
+                <div class="progress"><div class="progress-bar"></div></div>
+                <a href="#" class="bs-wizard-dot"></a>
+                <div class="bs-wizard-info text-center">Prepara el mapa.</div>
+            </div>
+
+            <div class="col-2 bs-wizard-step disabled">
+                <div class="text-center bs-wizard-stepnum">Paso 3</div>
+                <div class="progress"><div class="progress-bar"></div></div>
+                <a href="#" class="bs-wizard-dot"></a>
+                <div class="bs-wizard-info text-center">Agrega los monstruos.</div>
+            </div>
+
+            <div class="col-2 bs-wizard-step disabled">
+                <div class="text-center bs-wizard-stepnum">Paso 4</div>
+                <div class="progress"><div class="progress-bar"></div></div>
+                <a href="#" class="bs-wizard-dot"></a>
+                <div class="bs-wizard-info text-center">Prepara la historia</div>
+            </div>
+            <div class="col-2 bs-wizard-step disabled">
+                <div class="text-center bs-wizard-stepnum">Paso 5</div>
+                <div class="progress"><div class="progress-bar"></div></div>
+                <a href="#" class="bs-wizard-dot"></a>
+                <div class="bs-wizard-info text-center">Escoge el nivel de la historia (para que nivel de personajes está hecha).</div>
+            </div>
+            <div class="col-2 bs-wizard-step disabled">
+                <div class="text-center bs-wizard-stepnum">Fin</div>
+                <div class="progress"><div class="progress-bar"></div></div>
+                <a href="#" class="bs-wizard-dot"></a>
+                <div class="bs-wizard-info text-center">A jugar!</div>
+            </div>
+            <hr class="col-12">
         </div>
-        -->
     </div>
+    <div>
+        <h1>Contenido</h1>
+    </div>
+    <!--
+<div class="row" v-if="step == 2">
+    <componet is=""></componet>
+    <div class="col-9 map">
+        <canvas id="map" width="1200" height="1200" />
+    </div>
+</div>
+-->
     <script src="steps-component.js" ></script>
     <script src="map-name-size-step-component.js" ></script>
     <script src="app.js" ></script>
