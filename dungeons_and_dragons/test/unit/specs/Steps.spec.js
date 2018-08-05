@@ -1,11 +1,11 @@
 import Vue from 'vue'
-import HelloWorld from '@/components/HelloWorld'
+import Steps from '@/components/Steps'
 
-describe('HelloWorld.vue', () => {
+describe('Steps.vue', () => {
   it('should render correct contents', () => {
-    const Constructor = Vue.extend(HelloWorld)
+    const Constructor = Vue.extend(Steps)
     const vm = new Constructor().$mount()
     expect(vm.$el.querySelector('h1').textContent)
-      .toEqual('Prueba Tests!!')
+      .toEqual('Step1!!')
   })
 })

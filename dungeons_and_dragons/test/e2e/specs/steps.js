@@ -2,17 +2,17 @@
 // http://nightwatchjs.org/guide#usage
 
 module.exports = {
-  'default e2e tests': function (browser) {
+  'Steps tests': function (browser) {
     // automatically uses dev Server port from /config.index.js
     // default: http://localhost:8080
     // see nightwatch.conf.js
-    const devServer = browser.globals.devServerURL
+    const devServer = browser.globals.devServerURL;
 
     browser
-      .url(devServer)
-      .waitForElementVisible('#app', 5000)
+      .url(devServer + "/steps")
+      .waitForElementVisible('body', 5000)
       .assert.elementPresent('h1')
-      .assert.containsText('h1', 'Prueba Tests!!')
+      .assert.containsText('h1', 'Step1!!')
       .end()
   }
 }
