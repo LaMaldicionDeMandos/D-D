@@ -2,17 +2,17 @@
 // http://nightwatchjs.org/guide#usage
 
 module.exports = {
-  'Steps tests': function (browser) {
+  'App Test': function (browser) {
     // automatically uses dev Server port from /config.index.js
     // default: http://localhost:8080
     // see nightwatch.conf.js
     const devServer = browser.globals.devServerURL;
 
     browser
-      .url(devServer + "/steps")
+      .url(devServer)
       .waitForElementVisible('body', 5000)
+      .assert.title('Dungeons & Dragons')
       .assert.elementPresent('h1')
-      .assert.containsText('h1', 'Step1!!')
       .end()
   }
 }

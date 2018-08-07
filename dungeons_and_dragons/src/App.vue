@@ -1,12 +1,17 @@
 <template>
   <div id="app">
+    <steps></steps>
     <router-view/>
   </div>
 </template>
 
 <script>
+import Steps from '@/components/Steps'
 export default {
-  name: 'App'
+  name: 'App',
+  components: {
+    'steps': Steps
+  }
 }
 </script>
 
