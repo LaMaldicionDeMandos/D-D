@@ -1,6 +1,6 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import Steps from '@/components/Steps'
+import NameStep from '@/components/NameStep'
 
 Vue.use(Router)
 
@@ -9,8 +9,12 @@ export default new Router({
   routes: [
     {
       path: '/',
-      name: 'steps',
-      component: Steps
+      redirect: '/step/1'
+    },
+    {
+      path: '/step/1',
+      name: 'name-step',
+      component: NameStep
     }
   ]
 })
