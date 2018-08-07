@@ -1,6 +1,7 @@
 <template>
   <div id="app">
     <steps />
+    <hr class="col-12">
     <router-view/>
   </div>
 </template>

@@ -11,8 +11,14 @@ module.exports = {
     browser
       .url(devServer)
       .waitForElementVisible('body', 5000)
-      .assert.elementPresent('h1')
-      .assert.containsText('h1', 'Steps!!')
+      .elements('css selector', 'div.bs-wizard-stepnum', function iter(elems) {
+        elems.value.forEach(function(element, i) {
+          browser.elementIdText(element.ELEMENT, function(result){
+            if (i < 5) browser.assert.equal(result.value,`Paso ${i+1}`)
+            else browser.assert.equal(result.value,'Fin')
+          })
+        })
+      })
       .end()
   }
 }
