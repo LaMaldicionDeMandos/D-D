@@ -46,8 +46,8 @@ export default {
         && this.validateNotEmpty(dungeon.height)
     },
     next () {
-      if (!this.validate(this.dungeon)) {
-        alert('MALLLL')
+      if (this.validate(this.dungeon)) {
+        this.$emit('next_step', this.dungeon, 2)
       }
     }
   }

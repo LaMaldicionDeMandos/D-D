@@ -1,3 +1,4 @@
+import { mount } from '@vue/test-utils'
 import Vue from 'vue'
 import NameStep from '@/components/NameStep'
 
@@ -36,4 +37,22 @@ describe('NameStep.vue', () => {
       });
     });
   });
+  describe('Next', () => {
+    var wrapper;
+    beforeEach(() => {
+      const Constructor = Vue.extend(NameStep);
+      wrapper = mount(Constructor);
+    });
+    it('should_do_nothing_if_not_valid_form', () => {
+      wrapper.vm.next();
+      expect(wrapper.emitted().next_step).not.toBeDefined();
+    });
+    it('should_emit_next_step_event_if_id_valid_form', () => {
+      wrapper.vm.dungeon = {name:'a', width:500, height:500};
+      wrapper.vm.next();
+      expect(wrapper.emitted().next_step.length).toBe(1);
+      expect(wrapper.emitted().next_step[0][0]).toBe(wrapper.vm.dungeon);
+      expect(wrapper.emitted().next_step[0][1]).toBe(2);
+    });
+  })
 });
