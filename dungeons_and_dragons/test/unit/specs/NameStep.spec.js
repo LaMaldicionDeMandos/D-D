@@ -25,14 +25,20 @@ describe('NameStep.vue', () => {
         expect(vm.validateNotEmpty('saraza')).toBeTruthy();
 
       });
+      it('should return false if value not is a number', () => {
+        expect(vm.validateNumber('a')).toBeFalsy();
+        expect(vm.validateNumber('12')).toBeTruthy();
+
+      });
       it('should return false if some element is empty', () => {
-        expect(vm.validate({name: 'a', width: 500})).toBeFalsy();
-        expect(vm.validate({name: 'a', height: 500})).toBeFalsy();
-        expect(vm.validate({width: 500, width: 500})).toBeFalsy();
-        expect(vm.validate({name: 'a', width: 500, height: 0})).toBeFalsy();
-        expect(vm.validate({name: 'a', width: 0, height: 10})).toBeFalsy();
-        expect(vm.validate({name: '', width: 10, height: 10})).toBeFalsy();
-        expect(vm.validate({name: 'a', width: 10, height: 10})).toBeTruthy();
+        expect(vm.validate({name: 'a', width: '500'})).toBeFalsy();
+        expect(vm.validate({name: 'a', height: '500'})).toBeFalsy();
+        expect(vm.validate({width: '500', width: '500'})).toBeFalsy();
+        expect(vm.validate({name: 'a', width: '500', height: '0'})).toBeFalsy();
+        expect(vm.validate({name: 'a', width: '0', height: '10'})).toBeFalsy();
+        expect(vm.validate({name: '', width: '10', height: '10'})).toBeFalsy();
+        expect(vm.validate({name: 'a', width: '10', height: '10'})).toBeTruthy();
+        expect(vm.validate({name: 'a', width: 'a', height: '10'})).toBeFalsy();
 
       });
     });
@@ -48,7 +54,7 @@ describe('NameStep.vue', () => {
       expect(wrapper.emitted().next_step).not.toBeDefined();
     });
     it('should_emit_next_step_event_if_id_valid_form', () => {
-      wrapper.vm.dungeon = {name:'a', width:500, height:500};
+      wrapper.vm.dungeon = {name:'a', width:'500', height:'500'};
       wrapper.vm.next();
       expect(wrapper.emitted().next_step.length).toBe(1);
       expect(wrapper.emitted().next_step[0][0]).toBe(wrapper.vm.dungeon);

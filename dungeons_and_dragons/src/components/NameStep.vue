@@ -12,11 +12,11 @@
       <div class="col-sm-4" ></div>
       <div class="col-sm-2">
         <label class="form-label">Ancho en metros:</label>
-        <input v-model="dungeon.width" placeholder="Ej. 500" class="form-control">
+        <input type="number" v-model="dungeon.width" placeholder="Ej. 500" class="form-control">
       </div>
       <div class="col-sm-2">
         <label class="form-label">Largo en metros:</label>
-        <input v-model="dungeon.height" placeholder="Ej. 500" class="form-control">
+        <input type="number" v-model="dungeon.height" placeholder="Ej. 500" class="form-control">
       </div>
     </div>
     <div>
@@ -26,7 +26,7 @@
 </template>
 
 <script>
-  import _ from 'lodash';
+import _ from 'lodash'
 
 export default {
   name: 'name-step',
@@ -38,12 +38,17 @@ export default {
   },
   methods: {
     validateNotEmpty (p) {
-      return p && (_.isNumber(p) || p.length > 0)
+      return p && p.length > 0
+    },
+    validateNumber (p) {
+      return _.toInteger(p)
     },
     validate (dungeon) {
-      return this.validateNotEmpty(dungeon.name)
-        && this.validateNotEmpty(dungeon.width)
-        && this.validateNotEmpty(dungeon.height)
+      return this.validateNotEmpty(dungeon.name) &&
+        this.validateNotEmpty(dungeon.width) &&
+        this.validateNotEmpty(dungeon.height) &&
+        this.validateNumber(dungeon.width) &&
+        this.validateNumber(dungeon.height)
     },
     next () {
       if (this.validate(this.dungeon)) {

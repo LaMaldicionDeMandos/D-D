@@ -1,8 +1,8 @@
 <template>
   <div id="app">
-    <steps />
+    <steps ref="steps"/>
     <hr class="col-12">
-    <router-view/>
+    <router-view v-on:next_step="next"/>
   </div>
 </template>
 
@@ -12,6 +12,11 @@ export default {
   name: 'App',
   components: {
     'steps': Steps
+  },
+  methods: {
+    next (dungeon, step) {
+      this.$refs.steps.complete(step)
+    }
   }
 }
 </script>

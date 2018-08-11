@@ -49,6 +49,11 @@ export default {
   name: 'steps',
   data () {
     return {}
+  },
+  methods: {
+    complete (step) {
+      console.log(`Complete step ${step}.`)
+    }
   }
 }
 </script>
