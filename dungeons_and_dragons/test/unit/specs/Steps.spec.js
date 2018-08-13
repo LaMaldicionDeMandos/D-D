@@ -1,5 +1,6 @@
 import Vue from 'vue'
 import Steps from '@/components/Steps'
+import { mount } from '@vue/test-utils'
 
 describe('Steps.vue', () => {
   it('should render correct steps titles', () => {
@@ -42,5 +43,39 @@ describe('Steps.vue', () => {
     expect(steps[5].classList).not.toContain('active');
     expect(steps[5].classList).toContain('disabled');
 
+  });
+
+  describe('Goin to next step', () => {
+    var wrapper, vm, steps;
+    beforeEach(() => {
+      wrapper = mount(Steps);
+      vm = wrapper.vm;
+      steps = vm.$el.querySelectorAll('div.bs-wizard-step');
+    });
+
+    describe('When complete the steps', () => {
+      it('complete step 2, should complete step 1 and active step 2, others are disabled', () => {
+        vm.complete(2);
+        wrapper.update();
+        console.log(JSON.stringify(steps));
+        expect(steps[0].classList).toContain('complete');
+        expect(steps[1].classList).toContain('active');
+        expect(steps[2].classList).toContain('disabled');
+        expect(steps[3].classList).toContain('disabled');
+        expect(steps[4].classList).toContain('disabled');
+        expect(steps[5].classList).toContain('disabled');
+      });
+      it('complete step 6, should complete all steps but 6 is active', () => {
+        vm.complete(6);
+        wrapper.update();
+        console.log(JSON.stringify(steps));
+        expect(steps[0].classList).toContain('complete');
+        expect(steps[1].classList).toContain('complete');
+        expect(steps[2].classList).toContain('complete');
+        expect(steps[3].classList).toContain('complete');
+        expect(steps[4].classList).toContain('complete');
+        expect(steps[5].classList).toContain('active');
+      });
+    });
   });
 });

@@ -1,6 +1,5 @@
 <template>
   <div class="container">
-    <h3>Hacer los tests de los saltos de steps</h3>
     <div class="row bs-wizard" style="border-bottom:0;">
 
       <div class="col-2 bs-wizard-step" v-bind:class="activation[0]">
