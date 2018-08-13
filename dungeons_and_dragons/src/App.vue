@@ -16,6 +16,7 @@ export default {
   methods: {
     next (dungeon, step) {
       this.$refs.steps.complete(step)
+      this.$router.push({name: `step${step}`, params: {dungeon: dungeon}})
     }
   }
 }

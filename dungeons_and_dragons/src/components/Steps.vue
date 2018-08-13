@@ -1,40 +1,41 @@
 <template>
   <div class="container">
+    <h3>Hacer los tests de los saltos de steps</h3>
     <div class="row bs-wizard" style="border-bottom:0;">
 
-      <div class="col-2 bs-wizard-step active">
+      <div class="col-2 bs-wizard-step" v-bind:class="activation[0]">
         <div class="text-center bs-wizard-stepnum">Paso 1</div>
         <div class="progress"><div class="progress-bar"></div></div>
         <a href="#" class="bs-wizard-dot"></a>
         <div class="bs-wizard-info text-center">Ponle un nombre al mapa y elige el tamaño.</div>
       </div>
 
-      <div class="col-2 bs-wizard-step disabled">
+      <div class="col-2 bs-wizard-step" v-bind:class="activation[1]">
         <div class="text-center bs-wizard-stepnum">Paso 2</div>
         <div class="progress"><div class="progress-bar"></div></div>
         <a href="#" class="bs-wizard-dot"></a>
         <div class="bs-wizard-info text-center">Prepara el mapa.</div>
       </div>
-      <div class="col-2 bs-wizard-step disabled">
+      <div class="col-2 bs-wizard-step" v-bind:class="activation[2]">
         <div class="text-center bs-wizard-stepnum">Paso 3</div>
         <div class="progress"><div class="progress-bar"></div></div>
         <a href="#" class="bs-wizard-dot"></a>
         <div class="bs-wizard-info text-center">Agrega los monstruos y trampas.</div>
       </div>
 
-      <div class="col-2 bs-wizard-step disabled">
+      <div class="col-2 bs-wizard-step" v-bind:class="activation[3]">
         <div class="text-center bs-wizard-stepnum">Paso 4</div>
         <div class="progress"><div class="progress-bar"></div></div>
         <a href="#" class="bs-wizard-dot"></a>
         <div class="bs-wizard-info text-center">Prepara la historia.</div>
       </div>
-      <div class="col-2 bs-wizard-step disabled">
+      <div class="col-2 bs-wizard-step" v-bind:class="activation[4]">
         <div class="text-center bs-wizard-stepnum">Paso 5</div>
         <div class="progress"><div class="progress-bar"></div></div>
         <a href="#" class="bs-wizard-dot"></a>
         <div class="bs-wizard-info text-center">Escoge el nivel de la historia (para que nivel de personajes está hecha).</div>
       </div>
-      <div class="col-2 bs-wizard-step disabled">
+      <div class="col-2 bs-wizard-step" v-bind:class="activation[5]">
         <div class="text-center bs-wizard-stepnum">Fin</div>
         <div class="progress"><div class="progress-bar"></div></div>
         <a href="#" class="bs-wizard-dot"></a>
@@ -48,11 +49,52 @@
 export default {
   name: 'steps',
   data () {
-    return {}
+    return {
+      activation: [
+        {
+          active: true,
+          complete: false,
+          disabled: false
+        },
+        {
+          active: false,
+          complete: false,
+          disabled: true
+        },
+        {
+          active: false,
+          complete: false,
+          disabled: true
+        },
+        {
+          active: false,
+          complete: false,
+          disabled: true
+        },
+        {
+          active: false,
+          complete: false,
+          disabled: true
+        },
+        {
+          active: false,
+          complete: false,
+          disabled: true
+        }
+      ]
+
+    }
   },
   methods: {
     complete (step) {
-      console.log(`Complete step ${step}.`)
+      for (var i = 0; i < 6; i++) {
+        this.activation[i].complete = false
+        this.activation[i].active = false
+        this.activation[i].disabled = false
+        if (step - 1 > i) this.activation[i].complete = true
+        else if (step - 1 === i) this.activation[i].active = true
+        else this.activation[i].disabled = true
+      }
     }
   }
 }
