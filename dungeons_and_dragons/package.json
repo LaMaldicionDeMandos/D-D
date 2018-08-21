@@ -17,6 +17,7 @@
     "bootstrap": "^4.1",
     "lodash": "^4.17.10",
     "vue": "^2.5.2",
+    "vue-drag-drop": "^1.1.4",
     "vue-router": "^3.0.1"
   },
   "devDependencies": {

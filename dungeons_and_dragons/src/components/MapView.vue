@@ -1,12 +1,19 @@
 <template>
-  <canvas ref="map"/>
+  <drop @drop="handleDrop">
+    <canvas ref="map"/>
+  </drop>
+
 </template>
 
 <script>
 import Map from '../model/map'
+import {Drop} from 'vue-drag-drop'
 
 export default {
   name: 'map-view',
+  components: {
+    Drop
+  },
   props: {
     dungeon: Object
   },
@@ -18,6 +25,8 @@ export default {
   },
   mounted () {
     console.log(`Init, Dungeon: ${JSON.stringify(this.dungeon)}`)
+    //offsetParent.offsetLeft es la posicion relativa, el evento me va a tirar a partir de ahi.
+    console.log(this.$refs.map.offsetParent.offsetLeft)
     this.ctx = this.$refs.map.getContext('2d')
     requestAnimationFrame(this.drawGame)
     this.map = new Map(this.dungeon)
@@ -27,6 +36,9 @@ export default {
   methods: {
     drawGame () {
       this.map.draw(this.ctx)
+    },
+    handleDrop (data, event) {
+      alert(`You dropped with event: ${JSON.stringify(event.clientX)}`)
     }
   }
 }
