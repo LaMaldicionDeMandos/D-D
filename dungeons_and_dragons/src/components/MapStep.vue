@@ -5,6 +5,9 @@
       <div class="col-8 map">
         <map-view v-bind:dungeon="dungeon"></map-view>
       </div>
+      <div class="col-3">
+        <map-items-view></map-items-view>
+      </div>
       <div class="col-3"></div>
     </div>
     <div>
@@ -15,17 +18,15 @@
 
 <script>
 import MapView from '@/components/MapView'
+import MapItemsView from '@/components/MapItemsView'
 export default {
   name: 'map-step',
   components: {
-    'map-view': MapView
+    'map-view': MapView,
+    'map-items-view': MapItemsView
   },
   props: {
     dungeon: Object
-  },
-  data () {
-    return {
-    }
   },
   methods: {
     next () {

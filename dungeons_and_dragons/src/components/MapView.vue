@@ -27,18 +27,6 @@ export default {
   methods: {
     drawGame () {
       this.map.draw(this.ctx)
-      /*
-   for( var i = 0; i < 30; i++) {
-   for( var j = 0; j < 37; j++) {
-   if (map[i][j]) {
-   ctx.fillStyle = '#444444';
-   ctx.fillRect(j*tileW, i*tileW, tileH, tileW);
-   } else {
-   ctx.drawImage(sandTile, j*tileW, i*tileW, tileH, tileW);
-   }
-   }
-   }
-   */
     }
   }
 }
