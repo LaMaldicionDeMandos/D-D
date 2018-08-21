@@ -67,7 +67,6 @@ describe('Steps.vue', () => {
       });
       it('complete step 6, should complete all steps but 6 is active', () => {
         vm.complete(6);
-        wrapper.update();
         console.log(JSON.stringify(steps));
         expect(steps[0].classList).toContain('complete');
         expect(steps[1].classList).toContain('complete');

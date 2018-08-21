@@ -4,7 +4,7 @@ import MapView from '@/components/MapView'
 describe('MapView.vue', () => {
   var wrapper, vm, requestAnimationFrameMock, mounted;
   beforeEach(() => {
-    const $refs = {map: { getContext: () => {}}};
+    const $refs = {map: { getContext: () => {}, offsetParent:{}}};
     mounted = jest.fn();
     requestAnimationFrameMock = jest.spyOn(global, 'requestAnimationFrame');
     wrapper = mount(MapView, {

@@ -24,9 +24,8 @@ export default {
     }
   },
   mounted () {
-    console.log(`Init, Dungeon: ${JSON.stringify(this.dungeon)}`)
     //offsetParent.offsetLeft es la posicion relativa, el evento me va a tirar a partir de ahi.
-    console.log(this.$refs.map.offsetParent.offsetLeft)
+    //console.log(this.$refs.map.offsetParent.offsetLeft)
     this.ctx = this.$refs.map.getContext('2d')
     requestAnimationFrame(this.drawGame)
     this.map = new Map(this.dungeon)
